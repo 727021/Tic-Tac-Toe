@@ -1,0 +1,1 @@
+SET DEBUG=tic-tac-toe:* & nodemon
