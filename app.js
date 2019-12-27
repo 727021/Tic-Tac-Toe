@@ -6,7 +6,8 @@ var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var playRouter = require('./routes/play')
+var ajaxGame = require('./routes/ajax/game')
 
 var app = express();
 
@@ -22,12 +23,14 @@ app.use(sassMiddleware({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   indentedSyntax: true, // true = .sass and false = .scss
-  sourceMap: true
+  sourceMap: true,
+  response: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/play', playRouter)
+app.use('/ajax/game', ajaxGame)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
