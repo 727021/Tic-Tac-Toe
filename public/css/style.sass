@@ -1,6 +1,43 @@
-body
-  padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+.box
+    height: 10rem
+    width: 10rem
+    border: 1px solid black
+    display: inline-block
+    text-align: center
+    box-sizing: border-box
+    font-size: 7rem
+    &:hover
+        background-color: #00000010
+    &:first-child
+        border-left: none
+    &:last-child
+        border-right: none
+.box-row
+    justify-content: center
+    &.top .box
+        border-top: none
+    &.bottom .box
+        border-bottom: none
+.player-box
+    width: 15rem
+    display: inline-block
+    box-sizing: border-box
+    font-size: 2rem
+.player-row
+    justify-content: center
+.fa-times
+    color: red
+.fa-circle
+    color: blue
+.fa-crown
+    color: gold
+#gameCode
+    margin: auto
+    text-align: center
+    margin-top: 1rem
+    font-size: 1.7rem
+    width: initial
+    cursor: pointer
+a#gameLink
+    color: black
 
-a
-  color: #00B7FF

@@ -8,11 +8,15 @@ function Player(name) {
 }
 
 function Game(player1) {
+    this.start = Date.now()
     this.id = gameID++
     this.X = player1
     this.O = null
     this.turn = this.X
     this.winner = null
+    this.board = [' ', ' ', ' ',
+                  ' ', ' ', ' ',
+                  ' ', ' ', ' ']
     games[this.id] = this
 
     this.end = function() {

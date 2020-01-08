@@ -2,13 +2,13 @@ var express = require('express')
 var router = express.Router()
 const {Game,Player,getGame} = require('../game')
 
+router.get('/test', (req, res, next) => {
+    res.render('play', {game: new Game(new Player('Player1'))})
+})
+
 router.get('/:id', (req, res, next) => {
-    if (getGame(req.params.id).id == undefined) {
-        let game = new Game(new Player('Player1'))
-        console.log(game.id)
-        return res.redirect(`/play/${game.id}`)
-    }
-    res.send(getGame(req.params.id))
+    if (!Number(req.params.id) || !getGame(req.params.id).id) return res.redirect('/')
+    res.render('play', {game: getGame(req.params.id)})
 })
 
 router.get('/', (req, res, next) => {
